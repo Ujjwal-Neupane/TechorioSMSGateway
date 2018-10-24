@@ -2,6 +2,7 @@ package com.technorio.master.techoriosmsgateway;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.technorio.master.techoriosmsgateway.Main.MainActivity;
+import com.technorio.master.techoriosmsgateway.Utils.SharedPrefManager;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -82,6 +84,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     //progressDialog.cancel();
                     Toast.makeText(LoginActivity.this, "Login Successfully!", Toast.LENGTH_SHORT).show();
+                    SharedPrefManager.getInstance(getApplicationContext()).setUserStatus(true);
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     finish();
                     // SharedPrefManager.getInstance(getApplicationContext()).User_Login(true);

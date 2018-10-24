@@ -6,8 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.technorio.master.techoriosmsgateway.Main.MainActivity;
+import com.technorio.master.techoriosmsgateway.Utils.SharedPrefManager;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -25,7 +27,12 @@ public class SplashScreenActivity extends AppCompatActivity {
             @Override
             public void run() {
                 //check login or not and set intent
-                startActivity(new Intent(SplashScreenActivity.this, LoginActivity.class));
+                if (SharedPrefManager.getInstance(getApplicationContext()).getUserStatus()) {
+                    startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
+                } else {
+                    startActivity(new Intent(SplashScreenActivity.this, LoginActivity.class));
+                }
+
                 SplashScreenActivity.this.finish();
             }
         }, SPLASH_DISPLAY_LENGTH);

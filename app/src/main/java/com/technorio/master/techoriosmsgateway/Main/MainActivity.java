@@ -23,6 +23,7 @@ import android.view.MenuItem;
 import com.technorio.master.techoriosmsgateway.LoginActivity;
 import com.technorio.master.techoriosmsgateway.R;
 import com.technorio.master.techoriosmsgateway.Utils.Constants;
+import com.technorio.master.techoriosmsgateway.Utils.SharedPrefManager;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -94,6 +95,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_about) {
             getSupportFragmentManager().beginTransaction().replace(R.id.container, new AboutFragment()).commit();
         } else if (id == R.id.nav_logout) {
+            SharedPrefManager.getInstance(getApplicationContext()).setUserStatus(false);
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
         } else if (id == R.id.nav_sim_setting){
             getSupportFragmentManager().beginTransaction().replace(R.id.container, new SimSettingFragment()).commit();
