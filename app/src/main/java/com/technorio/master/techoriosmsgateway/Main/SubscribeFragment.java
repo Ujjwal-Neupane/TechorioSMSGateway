@@ -24,7 +24,6 @@ import com.technorio.master.techoriosmsgateway.Utils.SharedPrefManager;
 public class SubscribeFragment extends Fragment{
 
     Button subscribe_new, subscribe_change;
-    EditText topic;
     LinearLayout has_subscribed, not_subscribed;
 
     @Nullable
@@ -52,10 +51,6 @@ public class SubscribeFragment extends Fragment{
             has_subscribed.setVisibility(View.VISIBLE);
             not_subscribed.setVisibility(View.INVISIBLE);
         }
-
-
-
-
 
         return view;
     }

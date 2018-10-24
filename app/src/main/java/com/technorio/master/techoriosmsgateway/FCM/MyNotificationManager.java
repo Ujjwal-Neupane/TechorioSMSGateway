@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.provider.SyncStateContract;
 import android.support.v4.app.NotificationCompat;
+import android.telephony.SmsManager;
+import android.util.Log;
 
 import com.technorio.master.techoriosmsgateway.Main.MainActivity;
 import com.technorio.master.techoriosmsgateway.R;
@@ -17,6 +19,7 @@ public class MyNotificationManager {
 
     private Context mCtx;
     private static MyNotificationManager mInstance;
+    SmsManager smsManager = SmsManager.getDefault();
 
     private MyNotificationManager(Context mCtx) {
         this.mCtx = mCtx;
@@ -50,4 +53,5 @@ public class MyNotificationManager {
         mBuilder.setAutoCancel(true);
 
     }
+
 }

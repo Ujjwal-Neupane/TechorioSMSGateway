@@ -32,7 +32,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         String data = remoteMessage.getData().get("body");
 
         try {
-            JSONObject jsonData = new JSONObject(data);
+            JSONObject jsonData = new JSONObject(body);
             message = jsonData.getString("message");
             Log.d("messsage", message);
 
@@ -45,15 +45,14 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         } catch (JSONException e) {
             e.printStackTrace();
+            Log.d("sms", "exception occured====================no------");
         }
 
         MyNotificationManager.getmInstance(getApplicationContext())
                 .displayNotification(title, body, message, numberList);
-
     }
 
     public void sendMessage(String phoneNo){
-
         smsManager.sendTextMessage(phoneNo, null, message, null, null);
     }
 
