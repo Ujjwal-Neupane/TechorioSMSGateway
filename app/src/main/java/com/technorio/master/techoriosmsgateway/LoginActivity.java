@@ -80,14 +80,10 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 mProgress.dismiss();
                 if (response.trim().equals("Success")) {
-                    // SharedPrefManager.getInstance(getApplicationContext()).login_status(true);
 
-                    //progressDialog.cancel();
-                    Toast.makeText(LoginActivity.this, "Login Successfully!", Toast.LENGTH_SHORT).show();
                     SharedPrefManager.getInstance(getApplicationContext()).setUserStatus(true);
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     finish();
-                    // SharedPrefManager.getInstance(getApplicationContext()).User_Login(true);
                 } else {
                     Toast.makeText(LoginActivity.this, "Invalid Username or Password", Toast.LENGTH_SHORT).show();
                 }

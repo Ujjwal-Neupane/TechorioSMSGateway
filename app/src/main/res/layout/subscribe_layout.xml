@@ -11,7 +11,7 @@
         android:layout_marginRight="5dp"
         android:src="@drawable/ic_speech_bubble"/>
 
-    <LinearLayout
+    <!--<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -32,6 +32,66 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Subscribe" />
+
+    </LinearLayout>-->
+
+    <!--not subscribed layout-->
+    <LinearLayout
+        android:id="@+id/not_subscribed"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:gravity="center"
+            android:text="You have not subscribed to any topic"/>
+
+        <Button
+            android:id="@+id/btn_subscribe_new"
+            android:layout_marginTop="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="subscribe"/>
+
+    </LinearLayout>
+
+    <!--subscribed layout-->
+    <LinearLayout
+        android:id="@+id/has_subscribed"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColor="#000"
+            android:text="You are currently subscribed to"/>
+
+        <Button
+            android:id="@+id/btn_subscribe_change"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20sp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Topic"/>
+
+        <TextView
+            android:layout_marginTop="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:gravity="center"
+            android:text="Click to change the topic"/>
 
     </LinearLayout>
 
