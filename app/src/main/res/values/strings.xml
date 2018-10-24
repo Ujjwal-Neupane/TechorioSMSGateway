@@ -5,4 +5,19 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <string name="logoDesc">Company Logo</string>
+    <string name="userName_hint">Enter User Name Here</string>
+    <string name="password_hint">Enter Password Here</string>
+    <string name="login">Login</string>
+
+    <!--string of menu item of nav bar-->
+    <string name="subscription">Subscription</string>
+    <string name="msg_history">Message History</string>
+    <string name="sim_selection">Sim Setting</string>
+    <string name="about">About</string>
+    <string name="logout">Logout</string>
+
+    <string name="topic">Enter Topic Here</string>
+
 </resources>
