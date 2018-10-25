@@ -6,12 +6,9 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -97,7 +94,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_logout) {
             SharedPrefManager.getInstance(getApplicationContext()).setUserStatus(false);
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
-        } else if (id == R.id.nav_sim_setting){
+        } else if (id == R.id.nav_sim_setting) {
             getSupportFragmentManager().beginTransaction().replace(R.id.container, new SimSettingFragment()).commit();
         }
 
@@ -120,15 +117,11 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    private void checkPermission(){
+    private void checkPermission() {
 
         int permissionCheck = ContextCompat.checkSelfPermission(this, android.Manifest.permission.SEND_SMS);
         if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.SEND_SMS}, 1);
         }
     }
-
-
-
-
 }

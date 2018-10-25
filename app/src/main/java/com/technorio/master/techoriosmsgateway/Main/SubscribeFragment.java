@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.technorio.master.techoriosmsgateway.R;
@@ -21,7 +20,7 @@ import com.technorio.master.techoriosmsgateway.Utils.SharedPrefManager;
  * Created by Ujjwal on 10/23/2018.
  */
 
-public class SubscribeFragment extends Fragment{
+public class SubscribeFragment extends Fragment {
 
     Button subscribe_new, subscribe_change;
     LinearLayout has_subscribed, not_subscribed;
@@ -42,11 +41,11 @@ public class SubscribeFragment extends Fragment{
         subscribe_change.setOnClickListener(dialogOpener);
         subscribe_new.setOnClickListener(dialogOpener);
 
-        if(myTopic.isEmpty()){
+        if (myTopic.isEmpty()) {
             has_subscribed.setVisibility(View.INVISIBLE);
             not_subscribed.setVisibility(View.VISIBLE);
 
-        }else{
+        } else {
             subscribe_change.setText(myTopic);
             has_subscribed.setVisibility(View.VISIBLE);
             not_subscribed.setVisibility(View.INVISIBLE);
@@ -55,7 +54,7 @@ public class SubscribeFragment extends Fragment{
         return view;
     }
 
-    private void showSubscribeDialog(){
+    private void showSubscribeDialog() {
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(getContext());
         View view = getLayoutInflater().inflate(R.layout.subscribe_dialog, null);
 
@@ -68,10 +67,10 @@ public class SubscribeFragment extends Fragment{
         subscribe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(topic.getText().toString().isEmpty()){
+                if (topic.getText().toString().isEmpty()) {
                     topic.setError("Please enter a topic");
                     topic.requestFocus();
-                }else{
+                } else {
                     FirebaseMessaging.getInstance().subscribeToTopic(topic.getText().toString());
                     SharedPrefManager.getInstance(getContext()).setSubscriptionTopic(topic.getText().toString());
                     subscribe_change.setText(SharedPrefManager.getInstance(getContext()).getSubsctiptionTopic());
