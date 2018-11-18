@@ -14,6 +14,9 @@ public class SharedPrefManager {
     private static SharedPrefManager mInstance;
     private static final String KEY_USER_STATUS= "userStatus";
     private static final String KEY_SUBSC_TOPIC= "subscriptionTopic";
+    private static final String KEY_SIMID= "simId";
+    private static final String KEY_SIM_SELECTED= "isSimSelected";
+
 
     private SharedPrefManager(Context context) {
         mCtx = context;
@@ -62,5 +65,30 @@ public class SharedPrefManager {
         return sharedPreferences.getString(KEY_SUBSC_TOPIC, "");
 
     }
+
+   public int getSimId(){
+       SharedPreferences sharedPreferences = mCtx.getSharedPreferences(Constants.SHARED_PREF_NAME, Context.MODE_PRIVATE);
+       return sharedPreferences.getInt(KEY_SIMID, 0);
+   }
+
+   public void setSimId(int simId){
+       SharedPreferences sharedPreferences = mCtx.getSharedPreferences(Constants.SHARED_PREF_NAME, Context.MODE_PRIVATE);
+       SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(KEY_SIMID, simId);
+        editor.apply();
+   }
+
+   public Boolean isSimSelected(){
+       SharedPreferences sharedPreferences = mCtx.getSharedPreferences(Constants.SHARED_PREF_NAME, Context.MODE_PRIVATE);
+       return sharedPreferences.getBoolean(KEY_SIM_SELECTED, false);
+
+   }
+
+   public void setSimSelected(Boolean isSelected){
+       SharedPreferences sharedPreferences = mCtx.getSharedPreferences(Constants.SHARED_PREF_NAME, Context.MODE_PRIVATE);
+       SharedPreferences.Editor editor = sharedPreferences.edit();
+       editor.putBoolean(KEY_SIM_SELECTED, isSelected);
+       editor.apply();
+   }
 
 }

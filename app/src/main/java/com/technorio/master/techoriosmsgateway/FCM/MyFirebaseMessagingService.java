@@ -32,7 +32,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         String data = remoteMessage.getData().get("body");
 
         try {
-            JSONObject jsonData = new JSONObject(body);
+            JSONObject jsonData = new JSONObject(data);
             message = jsonData.getString("message");
             Log.d("messsage", message);
 
